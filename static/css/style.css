@@ -14,3 +14,19 @@
     margin: 5px;
     line-height: 42px;
 }
+
+div.modal-content {
+    color: black;
+}
+
+div.modal-content h4 {
+    text-shadow: none;
+}
+
+div.modal-content p {
+    text-shadow: none;
+}
+
+div.modal-footer a {
+    text-shadow: none;
+}

@@ -11,10 +11,25 @@
                 <div class="col s3">
                     <i class="fas fa-caret-down"></i>
                     {% if session.user|lower == task.created_by|lower %}
-                        <a href="#" class="green accent-4 btn-small">Done</a>
+                        <!-- Modal Trigger -->
+                        <a href="#modal1" class="green accent-4 btn-small modal-trigger">Done</a>
+
                         <a href="{{ url_for('edit_task', task_id=task._id) }}" class="light-blue lighten-1 btn-small">Edit</a>
                     {% endif %}
+                    
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>Task Complete</h4>
+                            <p>By selecting 'DONE', the task will be permanently removed from the task list. Are you sure you wish to remove the task?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">No</a>
+                            <a href="{{ url_for('delete_task', task_id=task._id) }}" class="waves-effect waves-green btn-flat">Yes</a>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="col s9">
                     <strong>{{ task.task_name }}</strong> : {{ task.due_date }}
                     {% if task.is_urgent == "on" %}
